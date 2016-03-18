@@ -25,7 +25,6 @@ public:
 	int getSize();
 	Type get(int position);
 	void set(int position, const Type& value);
-    
     int indexOf(Type value);
 };
 
