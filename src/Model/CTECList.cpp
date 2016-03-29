@@ -20,7 +20,7 @@ CTECList<Type>:: CTECList()
 template <class Type>
 CTECList<Type>::~CTECList()
 {
-	for (int deleteCount = 0; delete count < size; deleteCount++)
+    for (int deleteCount = 0; delete count < size; deleteCount++)
 	{
 	ArrayNode<Type> * temp = current;
 
@@ -117,7 +117,23 @@ Type CTECList<Type>:: getEnd()
 template<class Type>
 Type CTECList<Type>:: getFromIndex(int index)
 {
-
+    //Check that not removing from an empty list
+    assert(this->size > 0);
+    //Check that index is in bounds.
+    assert(index >= 0 && index < size);
+    
+    ArrayNode<Type> * current = head;
+    Type reutrnValue;
+    
+    for(int spot = 0; spot <= index; spot++)
+    {
+        if(spot == index)
+        {
+            returnValue = current->getValue;
+        }
+        current = current->getNext();
+    }
+    return current-> getValue();
 }
 
 template <class Type>
@@ -258,4 +274,40 @@ int CTECList<Type> :: indexOf(Type searchValue)
     index = -1;
     
     return index;
+}
+
+template<class Type>
+void CTECList<Type> :: swap(int indexOne, int indexTwo)
+{
+    assert(indexOne < size && indexTwo < size);
+    ArrayNode<Type> * first = getFromIndex(indexOne);
+    ArrayNode<Type> * second = getFromInded(indexTwo);
+    ArrayNode<Type> * temp = new ArrayNode<Type>();
+    
+    temp->setValue(first->getValue());
+    first->setValue(second->getValue());
+    second->setValue(temp->getValue());
+    
+    delete temp;
+}
+
+template<class Type>
+void CtecList<Type>::selctionSort()
+{
+    int innerLoop, outerLoop
+    for(outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
+    {
+        int selectedMinimum = outerLoop;
+        for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+        {
+            if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
+            {
+                selectedMinimum = innerLoop;
+            }
+        }
+        if(selectedMinimum != outerLoop)
+        {
+            swap(outerLoop, selectedMinimum);
+        }
+    }
 }
