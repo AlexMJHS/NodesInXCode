@@ -26,6 +26,12 @@ private:
 	Timer arrayTimer;
 	void testLists();
     void checkSorts();
+    void searchTest();
+    
+    int * mergeData;
+    void doMergesort();
+    void mergesort(int dataArray [], int size);
+    void merge(int data [], int sizeOne, int sizeTwo);
 public:
 	NodeController();
 	virtual ~NodeController();

@@ -78,3 +78,27 @@ void NodeController :: start()
 	arrayTimer.displayTimerInformation();
 
 }
+
+void NodeController::doMergesort()
+{
+    mergeData = new int[5000];
+    
+    for(int spot = 0; spot < 5000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    
+    mergesort(mergeData, 5000);
+    
+}
+
+void NodeController::mergesort(int data[], int size)
+{
+    
+}
+
+void NodeController::merge(int data[], int sizeOne, int sizeTwo)
+{
+    
+}
