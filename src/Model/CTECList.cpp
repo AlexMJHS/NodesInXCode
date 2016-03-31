@@ -292,12 +292,12 @@ void CTECList<Type> :: swap(int indexOne, int indexTwo)
 }
 
 template<class Type>
-void CtecList<Type>::selctionSort()
+void CTECList<Type>::selctionSort()
 {
-    int innerLoop, outerLoop
-    for(outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
+    for(int outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
     {
         int selectedMinimum = outerLoop;
+        
         for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
         {
             if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
@@ -307,7 +307,7 @@ void CtecList<Type>::selctionSort()
         }
         if(selectedMinimum != outerLoop)
         {
-            swap(outerLoop, selectedMinimum);
+            swap(selectedMinimum, outerLoop);
         }
     }
 }
