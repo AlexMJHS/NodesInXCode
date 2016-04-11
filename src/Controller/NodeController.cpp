@@ -143,6 +143,11 @@ void NodeController::merge(int data[], int sizeOne, int sizeTwo)
     
 }
 
+void NodeController::doQuick()
+{
+    
+}
+
 void NodeController::doBogo()
 {
     int temp [10];
@@ -160,18 +165,15 @@ void NodeController::doBogo()
 void NodeController::quicksort(int data[], int size)
 {
     int pivotIndex;
-    int SizeOne;
-    int sizeTwo;
     
-    if(size > 1)
+    
+    
+    if(size < last)
     {
-        partition(data, size, pivotIndex);
+        pivotIndex = partition(first, last);
+        quicksort(first, pivotIndex-1);
+        quicksort(pivotIndex+1, last);
         
-        sizeOne = pivotIndex;
-        sizeTwo = size - sizeOne - 1;
-        
-        quicksort(data, sizeOne);
-        quicksort(data + pivotIndex + 1, sizeTwo);
     }
 }
 

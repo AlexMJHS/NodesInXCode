@@ -31,10 +31,9 @@ private:
     void bogosort();
     
     void swap(int first, int second);
-    void quicksort(int data [], int size);
+    void quicksort(int data[], int size)
     int partition(int first, int last);
     void doQuick();
-    
     
     int * mergeData;
     void doMergesort();
