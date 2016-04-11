@@ -18,6 +18,7 @@ private:
     TreeNode<Type> * root;
     int height;
     bool balanced;
+    bool contains(Type value, CTECBinaryTree<Type> currentTree);
     
 public:
     CTECBinaryTree();
