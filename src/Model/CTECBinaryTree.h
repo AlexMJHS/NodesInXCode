@@ -21,6 +21,7 @@ private:
     bool balanced;
     bool contains(Type value, CTECBinaryTree<Type> * currentTree);
     void calculateSize(TreeNode<Type> * currentNode);
+    void insert(const Type& value, CTECBinaryTree<Type> * currentTree);
     
 public:
     CTECBinaryTree();
