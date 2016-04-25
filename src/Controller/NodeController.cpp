@@ -104,6 +104,22 @@ void NodeController::mergesort(int data[], int size)
     
 }
 
+void NodeController :: tryTree()
+{
+    CTECBinaryTree<int> testTree;
+    testTree.insert(7);
+    testTree.insert(10);
+    testTree.insert(-5);
+    cout<< testTree.contains(7);
+    cout <<" Traversal " << endl;
+    testTree.inorderTraversal(testTree.getRoot());
+    cout <<"\nPreorder Traversal" << endl;
+    testTree.preorderTraversal(testTree.getRoot());
+    cout <<"\nPostorder Traversal" << endl;
+    testTree.postorderTraversal(testTree.getRoot());
+    cout <<"\nTrees! " << endl;
+}
+
 void NodeController::merge(int data[], int sizeOne, int sizeTwo)
 {
     int * temp;   //Link for a temporary array.

@@ -16,6 +16,8 @@
 #include "../Model/CTECArray.h"
 #include "../Model/CTECList.cpp"
 #include "../Model/Timer.h"
+#include "../Model/CTECBinaryTree.cpp"
+#include "../Model/CTECBinaryTree.h"
 
 
 class NodeController
@@ -39,6 +41,8 @@ private:
     void doMergesort();
     void mergesort(int dataArray [], int size);
     void merge(int data [], int sizeOne, int sizeTwo);
+    
+    void tryTree();
 public:
 	NodeController();
 	virtual ~NodeController();

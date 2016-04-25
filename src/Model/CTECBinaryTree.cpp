@@ -257,6 +257,10 @@ bool CTECBinaryTree<Type> :: contains(Type value)
     bool isInTree = false;
     if(root->getValue == value)
     {
+        isInTree = false;
+    }
+    else if(root->getValue() == value)
+    {
         isInTree = true;
     }
     else if(value < root->getValue())
@@ -265,7 +269,7 @@ bool CTECBinaryTree<Type> :: contains(Type value)
     }
     else
     {
-        isInTree = contains(value, root->getRightChild());
+        isInTree = contains(contains(value, root->getightChild());
     }
     return isInTree;
 }
