@@ -20,6 +20,7 @@ private:
     bool edges [MAXIMUM] [MAXIMUM];
     Type labels [MAXIMUM];
     int manyVertices;
+    void depthFirstTraversal(Graph<Type> graph, int vertex, bool markedVertices[]);
 public:
     Graph();
     virtual ~Graph();
@@ -32,6 +33,8 @@ public:
     bool isEdge(int source, int target) const;
     std::set<int> neighbors(int vertex) const;
     Type operator [] (int vertex) const;
+    void depthFirstTraversal(Graph<Type> graph, int vertex);
+    void breadthFirstTraversal(Graph<Type> graph, int vertex);
 };
 
 #endif /* Graph_h */
