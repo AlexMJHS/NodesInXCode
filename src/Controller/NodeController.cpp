@@ -227,3 +227,17 @@ void NodeController::doQuick()
 {
     
 }
+
+vod NodeController::tryGraphs()
+{
+    CTECGraph<int> testerGraph;
+    testerGraph.addVertex(7);
+    testerGraph.addVertex(18);
+    //Add at least 7 vertices
+    //Connect the vertices
+    testerGraph.addEdge(0, 1);
+    testerGraph.addEdge(1, 0);
+    testerGraph.addEdge(9,9);
+    
+    testerGraph.breadthFirstTraversal(testerGraph, 0);
+}

@@ -42,6 +42,7 @@ private:
     void mergesort(int dataArray [], int size);
     void merge(int data [], int sizeOne, int sizeTwo);
     
+    void tryGraphs();
     void tryTree();
 public:
 	NodeController();
