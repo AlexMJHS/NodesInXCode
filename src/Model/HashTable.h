@@ -8,6 +8,7 @@
 
 #ifndef HashTable_h
 #define HashTable_h
+#include "CTECArray.cpp"
 
 template <class Type>
 class HashTable
@@ -17,6 +18,7 @@ private:
     double efficiencyPercentage;
     int size;
     Type * internalStorage;
+    CTECArray<Type> internalArray;
     
     int findPosition(const Type& value);
     int handleCollision(const Type& value);

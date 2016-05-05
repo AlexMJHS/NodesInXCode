@@ -50,6 +50,7 @@ void HashTable<Type> :: add(const Type& value)
             while(internalStorage[positionToInsert] != nullptr)
             {
                 positionToInsert = (positionToInsert + 1) % size;
+                
             }
             internalStorage[positionToInsert] = value;
         }
