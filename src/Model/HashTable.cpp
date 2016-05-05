@@ -35,8 +35,11 @@ void HashTable<Type> :: add(const Type& value)
     if(!contains(value))
     {
         //update size if needed.
-        
-        //Find where to put the value.
+        if(this->size/this->capacity >= this->efficiencyPercentage)
+        {
+            updateSize();
+        }
+        //Find where to put the value.d
         int positionToInsert = findPosition(value);
         
         if(internalStorage[positionToInsert] != nullptr)
