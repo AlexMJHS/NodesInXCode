@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E76CEB11CCE598C0050821C /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E76CEAF1CCE598C0050821C /* Graph.cpp */; };
+		9E79CFB41CDB8EA100AC39C6 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E79CFB21CDB8EA100AC39C6 /* HashTable.cpp */; };
 		9EFADEF41C99A53C0015527A /* NodeController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EFADEE61C99A53C0015527A /* NodeController.cpp */; };
 		9EFADEF51C99A53C0015527A /* NodeRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EFADEE81C99A53C0015527A /* NodeRunner.cpp */; };
 		9EFADEF61C99A53C0015527A /* ArrayNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9EFADEEA1C99A53C0015527A /* ArrayNode.cpp */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		9E76CEAF1CCE598C0050821C /* Graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
 		9E76CEB01CCE598C0050821C /* Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		9E79CFB21CDB8EA100AC39C6 /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		9E79CFB31CDB8EA100AC39C6 /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
 		9EFADEDA1C99A4A30015527A /* NodesInXCe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NodesInXCe; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFADEE61C99A53C0015527A /* NodeController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeController.cpp; sourceTree = "<group>"; };
 		9EFADEE71C99A53C0015527A /* NodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeController.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				9EFB81021CBBF98D00C4088E /* CTECBinaryTree.h */,
 				9E76CEAF1CCE598C0050821C /* Graph.cpp */,
 				9E76CEB01CCE598C0050821C /* Graph.h */,
+				9E79CFB21CDB8EA100AC39C6 /* HashTable.cpp */,
+				9E79CFB31CDB8EA100AC39C6 /* HashTable.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				9EFADEF61C99A53C0015527A /* ArrayNode.cpp in Sources */,
 				9EFB81031CBBF98D00C4088E /* CTECBinaryTree.cpp in Sources */,
 				9EFADEF81C99A53C0015527A /* CTECList.cpp in Sources */,
+				9E79CFB41CDB8EA100AC39C6 /* HashTable.cpp in Sources */,
 				9EFADEF71C99A53C0015527A /* CTECArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
