@@ -24,11 +24,11 @@ private:
 public:
     HashTable();
     ~HashTable();
+    
     void add(const Type& value);
     bool remove(const Type& value);
     bool contains(const Type& value);
-    
-    
+    int getSize();
     
 };
 
