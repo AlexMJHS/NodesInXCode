@@ -14,7 +14,7 @@ HashTable<Type> :: HashTable()
     this->capacity = 101;
     this->efficiencyPercentage = .667;
     this->size = 0;
-    this->internalStorage = new Type[capacity];
+    this->internalStorage = new HashNode<Type>[capacity];
 }
 
 template <class Type>
@@ -30,9 +30,9 @@ int HashTable<Type> :: getSize()
 }
 
 template <class Type>
-void HashTable<Type> :: add(const Type& value)
+void HashTable<Type> :: add(HashNode<Type> * currentNode)
 {
-    if(!contains(value))
+    if(!contains(currentNode))
     {
         //update size if needed.
         if(this->size/this->capacity >= this->efficiencyPercentage)
@@ -40,7 +40,7 @@ void HashTable<Type> :: add(const Type& value)
             updateSize();
         }
         //Find where to put the value.d
-        int positionToInsert = findPosition(value);
+        int positionToInsert = findPosition(currentNode);
         
         if(internalStorage[positionToInsert] != nullptr)
         {
@@ -52,11 +52,25 @@ void HashTable<Type> :: add(const Type& value)
                 positionToInsert = (positionToInsert + 1) % capacity;
                 
             }
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
         else
         {
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
     }
+}
+/*
+ * Very basic hashing algorithm.
+ * Simply assigns a position based on modulo math.
+ */
+template <class Type>
+int HashTable<Type> :: findPosition(HashNode<Type> * currentNode)
+{
+    //We are going to "hash" the key of the HashNode to find its storage spot.
+    int position = 0;
+    
+    position = currentNode.getKey() % capacity;
+    
+    return position;
 }

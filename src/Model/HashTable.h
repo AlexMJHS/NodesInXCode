@@ -9,6 +9,7 @@
 #ifndef HashTable_h
 #define HashTable_h
 #include "CTECArray.cpp"
+#include "HashNode.cpp"
 
 template <class Type>
 class HashTable
@@ -17,19 +18,18 @@ private:
     int capacity;
     double efficiencyPercentage;
     int size;
-    Type * internalStorage;
-    CTECArray<Type> internalArray;
+    HashNode<Type> * internalStorage;
     
-    int findPosition(const Type& value);
-    int handleCollision(const Type& value);
+    int findPosition(HashNode<Type> * currentNode);
+    int handleCollision(HashNode<Type> * currentNode);
     void updateSize();
 public:
     HashTable();
     ~HashTable();
     
-    void add(const Type& value);
-    bool remove(const Type& value);
-    bool contains(const Type& value);
+    void add(HashNode<Type> * currentNode);
+    bool remove(HashNode<Type> * currentNode);
+    bool contains(HashNode<Type> * currentNode);
     int getSize();
     
 };
