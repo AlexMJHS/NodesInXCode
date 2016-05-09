@@ -23,6 +23,9 @@ private:
     int findPosition(HashNode<Type> * currentNode);
     int handleCollision(HashNode<Type> * currentNode);
     void updateSize();
+    
+    int getNextPrime();
+    bool isPrime(int candidateNumber);
 public:
     HashTable();
     ~HashTable();
