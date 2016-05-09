@@ -26,7 +26,7 @@ HashTable<Type> :: ~HashTable<Type>()
 template <class Type>
 int HashTable<Type> :: getSize()
 {
-    return this->size();
+    return this->size;
 }
 
 template <class Type>
@@ -49,7 +49,7 @@ void HashTable<Type> :: add(const Type& value)
             //Insert the value there.
             while(internalStorage[positionToInsert] != nullptr)
             {
-                positionToInsert = (positionToInsert + 1) % size;
+                positionToInsert = (positionToInsert + 1) % capacity;
                 
             }
             internalStorage[positionToInsert] = value;
