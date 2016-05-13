@@ -159,9 +159,9 @@ int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
 }
 
 template<class Type>
-void CtecArray<Type>::selectionSort()
+void CTECArray<Type>::selectionSort()
 {
-    int innerLoop, outerLoop
+    int innerLoop, outerLoop;
     for(outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
     {
         int selectedMinimum = outerLoop;

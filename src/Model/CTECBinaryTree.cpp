@@ -195,7 +195,7 @@ void CTECBinaryTree<Type> :: insert(const Type& value, CTECBinaryTree<Type> * cu
 }
 
 template <class Type>
-void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode);
+void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
@@ -205,8 +205,8 @@ void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode);
     }
 }
 
-    template <class Type>
-    void CTECBinaryTree<Type> :: preorderTraversal(TreeNode<Type> * currentNode);
+template <class Type>
+void CTECBinaryTree<Type> :: preorderTraversal(TreeNode<Type> * currentNode)
     {
         if (currentNode != nullptr)
         {
@@ -217,7 +217,7 @@ void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode);
     }
 
     template <class Type>
-    void CTECBinaryTree<Type> :: postorderTraversal(TreeNode<Type> * currentNode);
+    void CTECBinaryTree<Type> :: postorderTraversal(TreeNode<Type> * currentNode)
     {
         if (currentNode != nullptr)
         {

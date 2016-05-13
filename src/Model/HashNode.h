@@ -8,7 +8,9 @@
 
 #ifndef HashNode_h
 #define HashNode_h
+
 #include <iostream> // For nullptr
+#include <stdio.h>
 
 template <class Type>
 class HashNode
@@ -22,7 +24,7 @@ public:
     void setKey(int key);
     void setValue(const Type& value);
     int getKey();
-    Type getValue;
+    Type getValue();
     
 };
 

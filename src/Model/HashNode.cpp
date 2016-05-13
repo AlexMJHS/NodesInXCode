@@ -28,7 +28,7 @@ void HashNode<Type> :: setValue(const Type& value)
 }
 
 template <class Type>
-int HashNode<Type> :: getKey(const Type& value)
+int HashNode<Type> :: getKey()
 {
     return this->key;
 }

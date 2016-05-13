@@ -20,7 +20,9 @@ CTECList<Type>:: CTECList()
 template <class Type>
 CTECList<Type>::~CTECList()
 {
-    for (int deleteCount = 0; delete count < size; deleteCount++)
+    ArrayNode<Type> * current = head;
+    
+    for (int deleteCount = 0; deleteCount < size; deleteCount++)
 	{
 	ArrayNode<Type> * temp = current;
 
@@ -74,22 +76,7 @@ void CTECList<Type>:: addToEnd(const Type& value)
 	end->setNext(newStuff);
 	end = newStuff;
 
-	newNode = new ArrayNode<Type>;
-	newNode -> value = value;
-	newNode -> next = NULL;
-
-	if(head == NULL) //If the list is empty, newNode is both the first and last node
-	{
-		head = newNode;
-		end = newNode;
-		size++;
-	}
-	else //The list is not empty, insert newNode after last
-	{
-		end -> next = newNode; //Insert newNode after last
-		end = newNode; //Make last point to the actual last node in the list
-		size++;
-	}
+    calculateSize();
 }
 
 template<class Type>
@@ -123,7 +110,7 @@ Type CTECList<Type>:: getFromIndex(int index)
     assert(index >= 0 && index < size);
     
     ArrayNode<Type> * current = head;
-    Type reutrnValue;
+    Type returnValue;
     
     for(int spot = 0; spot <= index; spot++)
     {
@@ -258,7 +245,7 @@ int CTECList<Type> :: indexOf(Type searchValue)
 {
     assert(this->size > 0);
     int index = -1;
-    ArraNode<Type> * searchPointer = head;
+    ArrayNode<Type> * searchPointer = head;
     if (searchPointer->getValue() == searchValue)
     {
         return 0;
@@ -281,7 +268,7 @@ void CTECList<Type> :: swap(int indexOne, int indexTwo)
 {
     assert(indexOne < size && indexTwo < size);
     ArrayNode<Type> * first = getFromIndex(indexOne);
-    ArrayNode<Type> * second = getFromInded(indexTwo);
+    ArrayNode<Type> * second = getFromIndex(indexTwo);
     ArrayNode<Type> * temp = new ArrayNode<Type>();
     
     temp->setValue(first->getValue());
@@ -292,12 +279,12 @@ void CTECList<Type> :: swap(int indexOne, int indexTwo)
 }
 
 template<class Type>
-void CTECList<Type>::selctionSort()
+void CTECList<Type>::selectionSort()
 {
+    int innerLoop, outerLoop;
     for(int outerLoop = 0; outerLoop < this->size()-1; outerLoop++)
     {
         int selectedMinimum = outerLoop;
-        
         for(innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
         {
             if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
