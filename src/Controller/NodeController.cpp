@@ -228,7 +228,7 @@ void NodeController::doQuick()
     
 }
 
-vod NodeController::tryGraphs()
+void NodeController::tryGraphs()
 {
     CTECGraph<int> testerGraph;
     testerGraph.addVertex(7);
@@ -240,4 +240,29 @@ vod NodeController::tryGraphs()
     testerGraph.addEdge(9,9);
     
     testerGraph.breadthFirstTraversal(testerGraph, 0);
+}
+
+void NodeController::testHashTable()
+{
+    CTECHashTable<int> tempTable;
+    HashNode<int> tempArray[10];
+    for(int spot = 0; spot < 10; spot++)
+    {
+        int randomValue = rand();
+        int randomKey = rand();
+        HashNode<int> temp = HashNode<int>(randomKey, randomValue);
+        tempTable.add(temp);
+        tempArray[spot] = temp;
+    }
+    bool test = tempTable.contains(tempArray[0]);
+    string result;
+    if(test)
+    {
+        result = "it's there";
+    }
+    else
+    {
+        result = "not anywhere";
+    }
+    cout << result << endl;
 }
