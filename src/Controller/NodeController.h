@@ -11,45 +11,44 @@
 #include <iostream>
 #include <string>
 
-#include "../Model/Node.h"
-#include "../Model/ArrayNode.h"
-#include "../Model/CTECArray.h"
-#include "../Model/CTECList.cpp"
+#include "../Model/Node.cpp"
+#include "../Model/ArrayNode.cpp"
+#include "../Model/CTECArray.cpp"
 #include "../Model/Timer.h"
+#include "../Model/CTECList.cpp"
 #include "../Model/CTECBinaryTree.cpp"
-#include "../Model/CTECBinaryTree.h"
+#include "../Model/Graph.cpp"
+#include "../Model/HashTable.cpp"
 
+using namespace std;
 
 class NodeController
 {
 private:
-	CTECArray<int> * notHipsterInts;
-	CTECList<int> * numbers;
-	Timer arrayTimer;
-	void testLists();
-    void checkSorts();
+    CTECArray<int> * notHipsterInts;
+    CTECList<int> * numbers;
+    Timer arrayTimer;
+    void sortData();
+    void testLists();
     void searchTest();
-    void doBogo();
-    void bogosort();
     
     void swap(int first, int second);
-    void quicksort(int data[], int size);
+    void quicksort(int first, int size);
     int partition(int first, int last);
     void doQuick();
     
-    int * mergeData;
+    int  * mergeData;
     void doMergesort();
-    void mergesort(int dataArray [], int size);
+    void mergesort(int data [], int size);
     void merge(int data [], int sizeOne, int sizeTwo);
     
-    void tryGraphs();
     void tryTree();
-    
-    void testHashTable();
+    void tryGraphs();
+    void tryHash();
 public:
-	NodeController();
-	virtual ~NodeController();
-	void start();
+    NodeController();
+    virtual ~NodeController();
+    void start();
 };
 
 #endif /* CONTROLLER_NODECONTROLLER_H_ */

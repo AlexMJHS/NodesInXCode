@@ -10,7 +10,7 @@
 #define HashTable_h
 #include "CTECArray.cpp"
 #include "HashNode.cpp"
-#include "CTECList.cpp"
+#include "CTECList.h"
 
 template <class Type>
 class HashTable
@@ -20,29 +20,30 @@ private:
     double efficiencyPercentage;
     int size;
     int tableSize;
-    HashNode<Type> * internalStorage;
-    CTECList<HashNode <Type>> * tableStorage;
+    int tableCapacity;
     
-    int findPosition(HashNode<Type> * currentNode);
-    int findTablePosition(HashNode<Type>);
+    HashNode<Type> ** internalStorage;
+    CTECList<HashNode<Type>> * tableStorage;
     
-    int handleCollision(HashNode<Type> * currentNode);
+    int findPosition(HashNode<Type>  currentNode);//
+    int findTablePosition(HashNode<Type>);//
+    int handleCollision(HashNode<Type>  currentNode);//
+    void updateSize();//
+    void updateTableCapacity();//
     
-    void updateSize();
-    void updateTableCapacity();
+    int getNextPrime();//
+    bool isPrime(int candidateNumber);//
     
-    int getNextPrime();
-    bool isPrime(int candidateNumber);
 public:
-    HashTable();
-    ~HashTable();
+    HashTable();//
+    ~HashTable();//
     
-    void add(HashNode<Type> * currentNode);
-    void addToTable(HashNode<Type> currentNode);
-    
-    bool remove(HashNode<Type> * currentNode);
-    bool contains(HashNode<Type> * currentNode);
-    int getSize();
+    void add(HashNode<Type>  currentNode);//
+    void addToTable(HashNode<Type> currentNode);//
+    bool remove(HashNode<Type>  currentNode);//
+    bool contains(HashNode<Type>  currentNode);//
+    int getSize();//
+
     
 };
 

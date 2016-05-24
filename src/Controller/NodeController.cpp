@@ -55,12 +55,45 @@ void NodeController :: testLists()
 {
 	numbers->addToFront(3);
 	numbers->addToEnd(8);
+    cout << "Front should be 3 and is: " << numbers->getFront() << endl;
 	cout << "End should be 8 and is: " << numbers->getEnd() << endl;
+}
+
+void NodeController :: sortData()
+{
+    /*
+     Create an array and list
+     Fill each with random data
+     sort and time
+     repeat with ordered data
+     print results
+     */
+    
+    CTECArray<int> numbersInArray(5000);
+    CTECList<int> numbersInList;
+    int cPlusPlusArray[5000];
+    for(int spot = 0; spot < 5000; spot++)
+    {
+        int randomValue = rand();
+        numbersInArray.set(spot, randomValue);
+        numbersInList.addToEnd(randomValue);
+        cPlusPlusArray[spot] = randomValue;
+    }
+    
+    Timer sortTimer;
+    sortTimer.startTimer();
+    numbersInList.selectionSort();
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInformation();
+    
+    sortTimer.resetTimer();
+    sortTimer.startTimer();
+    
 }
 
 void NodeController :: start()
 {
-    doMergesort();
+    tryHash();
 
 }
 
@@ -101,7 +134,6 @@ void NodeController::mergesort(int data[], int size)
         
         merge(data, sizeOne, sizeTwo);
     }
-    
 }
 
 void NodeController :: tryTree()
@@ -161,21 +193,21 @@ void NodeController::merge(int data[], int sizeOne, int sizeTwo)
 
 void NodeController::doQuick()
 {
+    mergeData = new int[5000];
     
-}
-
-void NodeController::doBogo()
-{
-    int temp [10];
-    int check [10];
-    
-    for(int index = 0; index < 10; index++)
+    for(int spot = 0; spot < 5000; spot++)
     {
-        check[index] = index;
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
     }
     
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    quicksort(0, 5000);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
     
-    
+    delete [] mergeData;
 }
 
 void NodeController::quicksort(int data[], int size)
@@ -200,10 +232,10 @@ void NodeController:: partition(int data[], int size, int pivotIndex)
     int index, smallIndex;
     swap(first, (first + last)/2);
     
-    pivot = mergeata [ first];
+    pivot = mergeData[first];
     smallIndex = first;
     
-    for(index = first + 1; index <= last, index++);
+    for(index = first + 1; index <= last; index++)
     {
         if(mergeData[index] < pivot)
         {
@@ -225,7 +257,21 @@ void NodeController::swap(int first, int last)
 
 void NodeController::doQuick()
 {
+    mergeData = new int[5000];
     
+    for(int spot = 0; spot < 5000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    quicksort(0, 5000);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
+    
+    delete [] mergeData;
 }
 
 void NodeController::tryGraphs()
@@ -233,16 +279,28 @@ void NodeController::tryGraphs()
     CTECGraph<int> testerGraph;
     testerGraph.addVertex(7);
     testerGraph.addVertex(18);
-    //Add at least 7 vertices
-    //Connect the vertices
-    testerGraph.addEdge(0, 1);
-    testerGraph.addEdge(1, 0);
-    testerGraph.addEdge(9,9);
+    testerGraph.addVertex(9);
+    testerGraph.addVertex(17);
+    testerGraph.addVertex(6);
+    testerGraph.addVertex(3);
+    testerGraph.addVertex(52);
+    testerGraph.addVertex(68);
+    testerGraph.addVertex(23);
+    testerGraph.addVertex(35);
+    //Add at least 7 vertices.
+    //Connct the vertices
+    testerGraph.addEdge(0,1);
+    testerGraph.addEdge(1,2);
+    testerGraph.addEdge(2,3);
+    testerGraph.addEdge(6,7);
+    testerGraph.addEdge(7,8);
+    testerGraph.addEdge(8,9);
+    
     
     testerGraph.breadthFirstTraversal(testerGraph, 0);
 }
 
-void NodeController::testHashTable()
+void NodeController::tryHash()
 {
     CTECHashTable<int> tempTable;
     HashNode<int> tempArray[10];
@@ -266,3 +324,4 @@ void NodeController::testHashTable()
     }
     cout << result << endl;
 }
+

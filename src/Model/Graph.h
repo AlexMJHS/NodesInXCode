@@ -9,8 +9,11 @@
 #ifndef Graph_h
 #define Graph_h
 
-#include <set>
 #include <stdio.h>
+#include <set>
+#include <iostream>
+#include <queue>
+#include <set>
 
 template <class Type>
 class Graph
@@ -20,16 +23,17 @@ private:
     bool edges [MAXIMUM] [MAXIMUM];
     Type labels [MAXIMUM];
     int manyVertices;
-    void depthFirstTraversal(Graph<Type> graph, int vertex, bool markedVertices[]);
+    void depthFirstTraversal(Graph<Type> graph, int vertex, bool  markedVertices[]);
+    
 public:
     Graph();
     virtual ~Graph();
-    
     void addVertex(const Type& label);
     void addEdge(int source, int target);
     void removeEdge(int source, int target);
     Type& operator [] (int vertex);
     int size() const;
+    
     bool isEdge(int source, int target) const;
     std::set<int> neighbors(int vertex) const;
     Type operator [] (int vertex) const;
