@@ -31,6 +31,7 @@ private:
     void sortData();
     void testLists();
     void searchTest();
+    void checkSorts();
     
     void swap(int first, int second);
     void quicksort(int first, int size);

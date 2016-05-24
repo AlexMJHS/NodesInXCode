@@ -10,53 +10,21 @@
 
 NodeController::NodeController()
 {
-	notHipsterInts = new CTECArray<int>(5);
-	numbers = new CTECList<int>();
+    notHipsterInts = new CTECArray<int>(5);
+    numbers = new CTECList<int>();
 }
 
 NodeController::~NodeController()
 {
-
-}
-
-void NodeController::checkSorts()
-{
-    /*
-     Create an array and list
-     Fill each with random data
-     sort and time
-     repeat with ordered dta
-     print results
-     */
-    CTECArray<int> numbersInArray(5000);
-    CTECList<int> numbersInList;
-    int cPlusPlusArray[5000];
-    for(int spot = 0; spot < 5000; spot++)
-    {
-        int randomValue = rand();
-        numbersInArray.set(spot, randomValue);
-        numbersInList.addToEnd(randomValue);
-        cPlusPlusArray[spot] = randomValue;
-    }
-    
-    Timer sortTimer;
-    sortTimer.startTimer();
-    numbersInList.selectionSort();
-    sortTimer.stopTimer();
-    sortTimer.displayTimerInformation();
-    
-    sortTimer.resetTimer();
-    sortTimer.startTimer();
-    
     
 }
 
 void NodeController :: testLists()
 {
-	numbers->addToFront(3);
-	numbers->addToEnd(8);
-    cout << "Front should be 3 and is: " << numbers->getFront() << endl;
-	cout << "End should be 8 and is: " << numbers->getEnd() << endl;
+    numbers -> addToFront(3);
+    numbers -> addToEnd(8);
+    cout << "Front should be 3 and is:  " << numbers->getFront() << endl;
+    cout << "End should be 8 and is:  " << numbers->getEnd() << endl;
 }
 
 void NodeController :: sortData()
@@ -91,11 +59,12 @@ void NodeController :: sortData()
     
 }
 
-void NodeController :: start()
+void NodeController::start()
 {
     tryHash();
-
+    
 }
+
 
 void NodeController::doMergesort()
 {
@@ -106,21 +75,25 @@ void NodeController::doMergesort()
         int myRandom = rand();
         mergeData[spot] = myRandom;
     }
-    for (int spot = 0; spot < 50; spot++)
+    for(int spot = 0; spot < 50; spot++)
     {
-        cout << mergeData[spot] << ", " ;
+        cout << mergeData[spot] << ", ";
     }
     Timer mergeTimer;
     mergeTimer.startTimer();
     mergesort(mergeData, 5000);
     mergeTimer.stopTimer();
     mergeTimer.displayTimerInformation();
+    for(int spot = 0; spot < 50; spot++)
+    {
+        cout << mergeData[spot] << "; ";
+    }
     
     delete [] mergeData;
     
 }
 
-void NodeController::mergesort(int data[], int size)
+void NodeController::mergesort(int data [], int size)
 {
     int sizeOne;
     int sizeTwo;
@@ -128,47 +101,31 @@ void NodeController::mergesort(int data[], int size)
     if(size > 1)
     {
         sizeOne = size/2;
-        sizeTwo = size-sizeOne;
+        sizeTwo = size - sizeOne;
+        
         mergesort(data, sizeOne);
-        mergesort(data+sizeOne, sizeTwo);
+        mergesort(data + sizeOne, sizeTwo);
         
         merge(data, sizeOne, sizeTwo);
     }
 }
 
-void NodeController :: tryTree()
+void NodeController::merge(int data [], int sizeOne, int sizeTwo)
 {
-    CTECBinaryTree<int> testTree;
-    testTree.insert(7);
-    testTree.insert(10);
-    testTree.insert(-5);
-    cout<< testTree.contains(7);
-    cout <<" Traversal " << endl;
-    testTree.inorderTraversal(testTree.getRoot());
-    cout <<"\nPreorder Traversal" << endl;
-    testTree.preorderTraversal(testTree.getRoot());
-    cout <<"\nPostorder Traversal" << endl;
-    testTree.postorderTraversal(testTree.getRoot());
-    cout <<"\nTrees! " << endl;
-}
-
-void NodeController::merge(int data[], int sizeOne, int sizeTwo)
-{
-    int * temp;   //Link for a temporary array.
+    int * temp; //Link for a temporary array.
     int copied = 0;
     int copied1 = 0;
     int copied2 = 0;
     int index;
     
     temp = new int[sizeOne + sizeTwo];
-    
     while((copied1 < sizeOne) && (copied2 < sizeTwo))
     {
-        if(data[copied1] < (data + sizeOne) [copied2]) //smaller goes in small half
+        if(data[copied1] < (data + sizeOne) [copied2])  //smaller goes in small half
         {
             temp[copied++] = data[copied1++];
         }
-        else //larger es in large half
+        else    //larger goes in large half
         {
             temp[copied++] = (data + sizeOne) [copied2++];
         }
@@ -183,49 +140,29 @@ void NodeController::merge(int data[], int sizeOne, int sizeTwo)
         temp[copied++] = (data + sizeOne) [copied2++];
     }
     
-    for(index = 0; index< sizeOne + sizeTwo; index++)
+    for(index = 0; index < sizeOne + sizeTwo; index++)
     {
         data[index] = temp[index];
-        delete [] temp;
     }
-    
+    delete [] temp;
 }
 
-void NodeController::doQuick()
-{
-    mergeData = new int[5000];
-    
-    for(int spot = 0; spot < 5000; spot++)
-    {
-        int myRandom = rand();
-        mergeData[spot] = myRandom;
-    }
-    
-    Timer mergeTimer;
-    mergeTimer.startTimer();
-    quicksort(0, 5000);
-    mergeTimer.stopTimer();
-    mergeTimer.displayTimerInformation();
-    
-    delete [] mergeData;
-}
 
-void NodeController::quicksort(int data[], int size)
+
+void NodeController :: quicksort(int first, int last)
 {
     int pivotIndex;
     
     
-    
-    if(size < last)
+    if(first < last)
     {
         pivotIndex = partition(first, last);
-        quicksort(first, pivotIndex-1);
-        quicksort(pivotIndex+1, last);
-        
+        quicksort(first, pivotIndex - 1);
+        quicksort(pivotIndex + 1, last);
     }
 }
 
-void NodeController:: partition(int data[], int size, int pivotIndex)
+int NodeController :: partition(int first, int last)
 {
     int pivot;
     
@@ -248,14 +185,15 @@ void NodeController:: partition(int data[], int size, int pivotIndex)
     return smallIndex;
 }
 
-void NodeController::swap(int first, int last)
+
+void NodeController :: swap(int first, int last)
 {
-    int temp = first;
+    int temp = mergeData[first];
     mergeData[first] = mergeData[last];
     mergeData[last] = temp;
 }
 
-void NodeController::doQuick()
+void NodeController :: doQuick()
 {
     mergeData = new int[5000];
     
@@ -276,7 +214,7 @@ void NodeController::doQuick()
 
 void NodeController::tryGraphs()
 {
-    CTECGraph<int> testerGraph;
+    Graph<int> testerGraph;
     testerGraph.addVertex(7);
     testerGraph.addVertex(18);
     testerGraph.addVertex(9);
@@ -298,11 +236,33 @@ void NodeController::tryGraphs()
     
     
     testerGraph.breadthFirstTraversal(testerGraph, 0);
+    
+    
+    
 }
 
-void NodeController::tryHash()
+void NodeController :: tryTree()
 {
-    CTECHashTable<int> tempTable;
+    CTECBinaryTree<int> testTree;
+    testTree.insert(7);
+    testTree.insert(10);
+    testTree.insert(-5);
+    
+    cout << testTree.contains(4) << endl;
+    cout << " Inorder Traveral " << endl;
+    testTree.inorderTraversal(testTree.getRoot());
+    cout << " \nPreoder Traversal " << endl;
+    testTree.preorderTraversal(testTree.getRoot());
+    cout << " \nPostorder Traversal " << endl;
+    testTree.postorderTraversal(testTree.getRoot());
+    cout<< " Tree " << endl;
+    
+    
+}
+
+void NodeController :: tryHash()
+{
+    HashTable<int> tempTable;
     HashNode<int> tempArray[10];
     for(int spot = 0; spot < 10; spot++)
     {
@@ -312,16 +272,16 @@ void NodeController::tryHash()
         tempTable.add(temp);
         tempArray[spot] = temp;
     }
-    bool test = tempTable.contains(tempArray[0]);
+    bool test = tempTable.contains(tempArray[3]);
     string result;
     if(test)
     {
-        result = "it's there";
+        result = "It's there";
     }
     else
     {
-        result = "not anywhere";
+        result = "Not anywhere";
     }
     cout << result << endl;
+    
 }
-

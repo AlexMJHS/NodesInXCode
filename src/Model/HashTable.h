@@ -8,7 +8,6 @@
 
 #ifndef HashTable_h
 #define HashTable_h
-#include "CTECArray.cpp"
 #include "HashNode.cpp"
 #include "CTECList.h"
 
